@@ -1,0 +1,13 @@
+.bars{
+    background-color: blue;
+    margin: 1px;
+    width: 2vw;
+    display:block;
+}
+.bars-main-container{
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    
+    align-items:flex-end;
+}

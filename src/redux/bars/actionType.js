@@ -1,0 +1,2 @@
+export const CHNAGE_DATA = "CHNAGE_DATA";
+export const ENABLE_SORT_BUTTON = "ENABLE_SORT_BUTTON";
