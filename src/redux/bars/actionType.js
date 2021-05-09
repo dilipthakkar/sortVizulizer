@@ -1,2 +1,4 @@
 export const CHNAGE_DATA = "CHNAGE_DATA";
 export const ENABLE_SORT_BUTTON = "ENABLE_SORT_BUTTON";
+export const CHNAGE_SPEED = "CHNAGE_SPEED";
+export const CHNAGE_DENSE = "CHNAGE_DENSE";

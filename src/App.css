@@ -7,14 +7,6 @@
 }
 
 .App button{
-  width: 200px;
-  height: 100px;
-  max-height: 15vh;
-  max-width: 20vw;
-  background-color:darkmagenta;
-  font-size: 30px;
-  color: white;
-  border : 0px;
-  margin: 10px;
+ 
 }
 

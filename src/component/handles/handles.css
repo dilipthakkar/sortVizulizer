@@ -1,0 +1,29 @@
+.handles--main--container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.handles--main--container button{
+    width: 200px;
+    height: 100px;
+    max-height: 15vh;
+    max-width: 20vw;
+    min-width: 100px;
+    background-color:darkmagenta;
+    font-size: 30px;
+    color: white;
+    border : 0px;
+    margin: 10px;
+    word-wrap: break-word;
+}
+.handles--sliders{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+
+}

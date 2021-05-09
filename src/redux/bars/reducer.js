@@ -1,8 +1,11 @@
-import { CHNAGE_DATA, ENABLE_SORT_BUTTON } from "./actionType";
+import { CHNAGE_DATA, CHNAGE_DENSE, CHNAGE_SPEED, ENABLE_SORT_BUTTON } from "./actionType";
 
 var init = {
     data : [],
-    enable : true
+    enable : true,
+    speed : 20,
+    dense : 50,
+    demo : [1,2,3,4,5]
 }
 
 const BarReducer = (state = init, action)=>{
@@ -11,6 +14,20 @@ const BarReducer = (state = init, action)=>{
             return{
                 ...state,
                 data : action.payload 
+
+            }
+            break;
+
+            case CHNAGE_DENSE:
+            return{
+                ...state,
+                dense : action.payload 
+
+            }
+            break;case CHNAGE_SPEED:
+            return{
+                ...state,
+                speed : action.payload 
 
             }
             break;

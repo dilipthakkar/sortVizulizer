@@ -2,22 +2,21 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Bars from './component/bars/Bars';
-import { bubblesort } from './redux/bars/action';
+import Handles from './component/handles/handles';
+import SliderCmp from './component/slider/Slider';
+import { bubblesort, changeDense, changeSpeed, creategrid } from './redux/bars/action';
 import { getrandom } from './utils/utils';
 function App(props) {
-  const clickBtnFunc = ()=>{
-    props.bubble(getrandom());
-}
+  
+  
   return (
 
 
 
     <div className="App">
     <div>
-    <button onClick={clickBtnFunc} disabled={!props.enable}>bubble</button>
-      <button onClick={clickBtnFunc} disabled={!props.enable}>insertion</button>
-      <button onClick={clickBtnFunc} disabled={!props.enable}>quick</button>
-      <button onClick={clickBtnFunc} disabled={!props.enable}>merge</button>
+     
+      <Handles />
 
     </div>
     
@@ -27,14 +26,14 @@ function App(props) {
   );
 }
 
-const mapDispatchToProp = (dispatch)=>({
-  bubble : (data)=>dispatch(bubblesort(data))
-})
+
 
 const mapStateToProp = (state)=>({
-  enable : state.bars.enable
+  enable : state.bars.enable,
+  dense : state.bars.dense,
+  speed : state.bars.speed,
 })
 
 
 
-export default connect(mapStateToProp,mapDispatchToProp)(App)
+export default connect(mapStateToProp,null)(App)

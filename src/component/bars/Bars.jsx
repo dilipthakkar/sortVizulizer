@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { bubblesort } from '../../redux/bars/action'
-import { getrandom } from '../../utils/utils'
+import { getRandomColor } from '../../utils/utils';
 import "./bars.css"
-
-
+import { v4} from 'uuid'
 
 
 const Bars = (props) => {
@@ -14,9 +12,11 @@ const Bars = (props) => {
     
     const styleClasses = (e) => {
         let backgroundColor = "#474747"
-        if(e.curr){
+        if(e.curr==1){
             backgroundColor = "#fab425"
-        } 
+        } if(e.curr==3){
+          backgroundColor = getRandomColor();
+      } 
         return {
           Minwidth: "0.1rem",
           height: (e.value * 10).toString() + "px",
@@ -30,10 +30,10 @@ const Bars = (props) => {
     
 
     return (
-        <div>
+        <div> 
             <div className="bars-main-container">
         {arr && arr.map((element) => (
-          <span className="bars" style={styleClasses(element)}></span>
+          <span className="bars" style={styleClasses(element)} key={v4()}></span>
         ))}
       </div>
            
@@ -43,7 +43,7 @@ const Bars = (props) => {
 }
 
 const mapStateToProp = (state)=>({
-    data : state.bars.data
+    data : state.bars.data,
 })
 
 
