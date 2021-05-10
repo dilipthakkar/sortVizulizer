@@ -78,32 +78,81 @@ export const bubblesort = (arr , speed) => {
 };
 
 
-export const Demo = (data)=>{
-  console.log(data);
-  return dispatch=>{
-    let time = 0;
-    for(let i=0;i<3;i++){
-      time += 3000;
-      setTimeout(() => {
-        const newArray = [...data];
-        newArray[3] = -1000;
-        console.log(data);
-        console.log(newArray);
-    
-        dispatch({type : "DEMO" , payload : newArray});  
-        
-      }, time);
-    
-    }
-    }
   
 
+
+const partitionLow = (arr,low,high,dispatch)=>{
+  let pivot = arr[low].value;
+  let i = low;
+  let j = high;
+  while(i<j){
+      while(arr[i] && arr[i].value<=pivot && i<=high){  
+        i++;
+      }
+      while(arr[j] && arr[j].value>pivot && j>=low){
+        j--;
+      } 
+      if(i<j){
+        const newArr = [...arr];
+        for(let k = 0 ; k<newArr.length ; k++){
+          if(newArr[k].curr == 3){
+            newArr[k].curr = 0;
+          }
+        }
+        newArr[i].curr = 3;
+        newArr[j].curr = 3;
+        
+        dispatch({ type: CHNAGE_DATA, payload: newArr });
+        
+          let temp = arr[i].value;
+          arr[i].value = arr[j].value;
+          arr[j].value = temp;   
+      }
+  }
+  let temp = arr[i-1].value;
+  arr[i-1].value = arr[low].value;
+  arr[low].value = temp;
+  
+  const newArr = [...arr];
+  newArr[i-1].curr = 1;
+  dispatch({ type: CHNAGE_DATA, payload: newArr });
+  return i-1;
+
+}
+
+
+const quicksort = (arr, low, high , time ,dispatch,speed) => {
+  time += speed*2;
+  setTimeout(() => {
+    // base condition
+    if (low >= high) {
+      return;
+    }
+    // rearrange the elements across pivot
+    const pivot = partitionLow(arr, low, high , dispatch);
+
+    // recur on sub-array containing elements less than pivot
+    quicksort(arr, low, pivot - 1, time,dispatch,speed);
+
+    // recur on sub-array containing elements more than pivot
+    quicksort(arr, pivot + 1, high , time,dispatch,speed);
+    const newArr = [...arr];
+    newArr[low].curr = 1;
+    newArr[high].curr = 1;
+    dispatch({ type: CHNAGE_DATA, payload: newArr });
+  
+  }, time);
 
 }
 
 
 
 
+export const quick = (arr,speed)=>{
+  let time = 0;
+  speed = 100-speed;
+  return dispatch=>{
+    quicksort(arr,0,arr.length-1,time , dispatch,speed);
 
-
-
+  }
+}

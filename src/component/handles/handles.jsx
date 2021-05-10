@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bubblesort, changeDense, changeSpeed, creategrid, Demo, selectionsort } from '../../redux/bars/action'
+import { bubblesort, changeDense, changeSpeed, creategrid, quick} from '../../redux/bars/action'
 import { getrandom } from '../../utils/utils'
 import SliderCmp from '../slider/Slider'
 import "./handles.css"
@@ -10,7 +10,7 @@ const Handles = (props) => {
         props.bubble(props.data , props.speed);
     }
     const clickBtnFuncSelection = ()=>{
-      props.DemoFunc(props.demo);
+      props.quick(props.data , props.speed);
   }
     return (
         <div className="handles--main--container">
@@ -37,7 +37,7 @@ const mapDispatchToProp = (dispatch)=>({
     creategrid : (data)=>dispatch(creategrid(data)),
     setSpeed : (data)=>dispatch(changeSpeed(data)),
     setDense : (data)=>dispatch(changeDense(data)),
-    DemoFunc : (data)=>dispatch(Demo(data))
+    quick : (data,speed)=>dispatch(quick(data,speed))
 
     // selectionSort : (data,speed)=>dispatch(selectionsort(data,speed))
   })

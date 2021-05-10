@@ -3,7 +3,7 @@ import { CHNAGE_DATA, CHNAGE_DENSE, CHNAGE_SPEED, ENABLE_SORT_BUTTON } from "./a
 var init = {
     data : [],
     enable : true,
-    speed : 20,
+    speed : 0,
     dense : 50,
     demo : [1,2,3,4,5]
 }
