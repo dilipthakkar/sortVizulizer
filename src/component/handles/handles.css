@@ -17,6 +17,7 @@
     color: white;
     border : 0px;
     margin: 10px;
+    border-radius: 20px;
     word-wrap: break-word;
 }
 .handles--sliders{
@@ -26,4 +27,14 @@
     justify-content: center;
     width: 100vw;
 
+}
+.handles--main--container button:active{
+    background-color: cornflowerblue;
+    color: chartreuse;
+}
+
+
+.handles--main--container button:hover{
+    background-color: snow;
+    color: black;
 }

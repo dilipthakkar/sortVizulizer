@@ -7,14 +7,17 @@ import { v4} from 'uuid'
 
 const Bars = (props) => {
     const [arr , setArr] = useState([]);
-   
+    
 
     
     const styleClasses = (e) => {
         let backgroundColor = "#474747"
         if(e.curr==1){
             backgroundColor = "#fab425"
-        } if(e.curr==3){
+        }else if(e.curr==5){
+          backgroundColor = "#57abd6"
+        }
+        if(e.curr==3){
           backgroundColor = getRandomColor();
       } 
         return {
@@ -32,6 +35,7 @@ const Bars = (props) => {
     return (
         <div> 
             <div className="bars-main-container">
+              
         {arr && arr.map((element) => (
           <span className="bars" style={styleClasses(element)} key={v4()}></span>
         ))}

@@ -4,8 +4,7 @@ var init = {
     data : [],
     enable : true,
     speed : 0,
-    dense : 50,
-    demo : [1,2,3,4,5]
+    dense : 50
 }
 
 const BarReducer = (state = init, action)=>{

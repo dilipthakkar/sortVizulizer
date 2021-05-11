@@ -5,7 +5,7 @@ const SliderCmp = ({ChangeData , ChangeGrid , disabled, flagname}) => {
     const [value , setValue] = useState(0);
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        ChangeData(newValue);
+        ChangeData(newValue*2);
 
       };
     return (
